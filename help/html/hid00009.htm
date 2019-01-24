@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>データ</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+<object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<param name="Keyword" value="データ">
+	<param name="Keyword" value="バックアップ先">
+	<param name="Keyword" value="メモテキストファイル">
+	<param name="Keyword" value="暦情報データファイル">
+</object>
+</head>
+
+<body>
+
+<h1>データ</h1>
+
+<dl>
+<dt>基本データファイル
+<dd><b>予定1</b>、<b>予定2</b>、<b>記念日</b>のデータです。デフォルトでは、実行ファイルと同じ場所に &quot;<b>MM_DATA.TXT</b>&quot; というファイルが作られます。<br>
+データファイルは <b>nnyyyymmdd</b>=内容 という書式のテキストファイルです。<br>
+　<b>nn</b> = 00:予定1　01:予定2　02:記念日、　　<b>yyyymmdd</b> = 日付<br>
+　内容文字列中の &quot;<b>\n</b>&quot; は表示の際の改行になります。<br><br>
+
+　<b>例</b>:<br>
+　0020061011=健康診断<br>
+　0200000802=ねこみみ誕生日\n00:00～ パーティー<br>
+<br>
+
+<span class="btn_frame">マージ</span><br>
+　指定した既存データファイルを現在のデータにマージします。重複している場合は無視、同日付で別内容の場合は改行を入れて追加します。<br>
+<br>
+<img src="combobox.png" alt="" border="0" align="top"><span class="btn_frame">年以前のデータを整理</span><br>
+　コンボボックスで指定した年以前の予定1、予定2データを切り取って別ファイルに保存します。<br>
+<br>
+<b>Tips</b>　データファイルを Dropbox のフォルダなどに置いて同期させると便利かもしれません。<br>
+<br>
+
+<dt>メモテキストファイル
+<dd>メモ画面に使用するテキストファイルです。最大３つまで設定できます。デフォルトでは、実行ファイルと同じ場所に &quot;<b>MM_MEMO.TXT</b>&quot;、&quot;<b>MM_MEMO2.TXT</b>&quot;、&quot;<b>MM_MEMO3.TXT</b>&quot; というファイルが作られます。<br>
+メモを使用する場合は、タブに表示するタイトルを設定してください。タイトルを空欄にするとそのメモ画面は表示されなくなります。<br>
+<dt><img src="chkbox.png" alt="" border="0"> データをUnicode(UTF-8)で保存
+<dd>データファイルやメモテキストファイルを Unicode(UTF-8 BOM付) で保存します。チェックを外すと、ShiftJIS で保存されます。ShiftJISにない文字を使ったり、多言語を混在させたい場合には、チェックしてください。<br>
+<br>
+
+<dt>暦情報データファイル
+<dd>これを設定すると、週間予定の暦情報で、月齢、祝日、旧暦、干支、六曜、節気・雑節情報の後にその内容が表示されます。<br>
+データファイルは、&quot;yyyy/mm/dd=内容&quot; という書式のテキストファイル(ShiftJIS または UTF-8 BOM付)です。<br>
+この内容は月メモの画面では編集できません。<br>
+必要に応じてファイルを作成し、設定してください。設定を解除したい場合は、入力欄で<span class="btn_frame">DEL</span>キーを押してください。<br>
+<br>
+
+<b>例</b><br>
+2012/05/13=母の日<br>
+2012/06/17=父の日<br>
+2012/10/31=ハロウィン<br>
+<br>
+
+<dt>バックアップ先
+<dd>これを指定していると、基本データファイルやメモテキストファイルを保存する際に、バックアップが作られます。設定を削除したい場合は、入力欄で<span class="btn_frame">DEL</span>キーを押してください。
+</dl>
+<br><br>
+
+</body>
+</html>

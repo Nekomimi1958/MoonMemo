@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>インストール</title>
+<link rel="stylesheet" type="text/css" href="help.css">
+<object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+	<param name="Keyword" value="アンインストール">
+	<param name="Keyword" value="インストール">
+	<param name="Keyword" value="動作環境">
+</object>
+</head>
+
+<body>
+
+<h1>インストール</h1>
+
+<h2>動作環境</h2>
+
+<p><b>Windows XP</b> 以降なら多分だいじょうぶです。</p>
+
+<h2>インストールするファイル</h2>
+
+<p>
+適当なディレクトリに以下のファイルを置いてください。<br>
+また、バージョンアップの際は、ファイルを上書きしてください。
+</p>
+
+<table border="0" cellpadding="2" class="margin1">
+<tr><td><b>MoonMemo.exe</b></td><td><b>月メモ</b>本体</td></tr>
+<tr><td><b>MoonMemo.chm</b></td><td>このヘルプファイル</td></tr>
+<tr><td><b>koyomi.dll</b></td><td>暦データ計算DLL(片貝充男氏作)</td></tr>
+</table>
+<br>
+
+<p>
+最初に起動したときには、デフォルトの基本データファイルとして <b>MM_DATA.TXT</b> が、またメモテキストファイルとして <b>MM_MEMO.TXT</b> が自動的に作られます。他のファイルに変更したい場合は、<b>設定</b> - <a href="hid00009.htm">データ</a> で行ってください。
+</p>
+<p>
+また <b>MoonMemo.INI</b>(UTF-8) というファイルが作られ、設定情報等はそこに保存されます。レジストリは使用していません。
+</p>
+<p>
+※V1.50 からデータファイルを Unicode(UTF-8) でも保存できるようになりました。読み込む際は、UTF-8、SjiftJIS のどちらでも開けます。UTF-8 で保存されたファイルは、以前のバージョンでは開けませんので注意してください。予定やメモで、ShiftJISにない文字を使ったり、多言語を混在させたい場合には、設定 - <a href="hid00009.htm">データ</a> の「データをUnicode(UTF-8)で保存」をチェックしてください。<br>
+なお INI ファイルは、V1.50 から UTF-8 で保存されます。<br>
+</p>
+<p>
+※V1.25から、旧暦等の情報はDLLを用いて取得するようにしたため、今まで同梱していた旧暦情報ファイルは不要となりました。V1.25以前で設定されていた暦情報データファイルは起動時に一旦解除されます。ユーザ作成の暦情報データファイルを用いたい場合は、改めて設定しなおしてください。
+</p>
+
+<p>
+<b>source </b>ディレクトリにはソースコード(C++Builder 10.2.3 用、Konopka Signature VCL Controls を使用)がありますので、自由にご利用ください。
+</p>
+<br>
+
+<h2>アンインストール</h2>
+<p>
+インストールしたファイルおよび INIファイル等を削除して下さい。
+</p>
+
+</body>
+</html>
