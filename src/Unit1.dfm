@@ -121,6 +121,7 @@ object MoonMemoForm: TMoonMemoForm
         Action = HelpAction
         Anchors = [akLeft, akBottom]
         Flat = True
+        Spacing = 0
       end
     end
     object CalBtnPanel: TPanel
@@ -221,6 +222,7 @@ object MoonMemoForm: TMoonMemoForm
               Top = 112
               Width = 185
               Height = 41
+              Color = 15987699
               TabOrder = 0
             end
           end
@@ -542,14 +544,14 @@ object MoonMemoForm: TMoonMemoForm
                 object OptMemFile1Edit: TEdit
                   Left = 126
                   Top = 22
-                  Width = 203
+                  Width = 213
                   Height = 21
                   Anchors = [akLeft, akTop, akRight]
                   ReadOnly = True
                   TabOrder = 1
                 end
                 object RefMemo1Btn: TButton
-                  Left = 330
+                  Left = 340
                   Top = 21
                   Width = 36
                   Height = 22
@@ -561,7 +563,7 @@ object MoonMemoForm: TMoonMemoForm
                 object OptMemFile2Edit: TEdit
                   Left = 126
                   Top = 48
-                  Width = 203
+                  Width = 213
                   Height = 21
                   Anchors = [akLeft, akTop, akRight]
                   ReadOnly = True
@@ -569,7 +571,7 @@ object MoonMemoForm: TMoonMemoForm
                 end
                 object RefMemo2Btn: TButton
                   Tag = 1
-                  Left = 330
+                  Left = 340
                   Top = 48
                   Width = 36
                   Height = 22
@@ -581,7 +583,7 @@ object MoonMemoForm: TMoonMemoForm
                 object OptMemFile3Edit: TEdit
                   Left = 126
                   Top = 74
-                  Width = 203
+                  Width = 213
                   Height = 21
                   Anchors = [akLeft, akTop, akRight]
                   ReadOnly = True
@@ -589,7 +591,7 @@ object MoonMemoForm: TMoonMemoForm
                 end
                 object RefMemo3Btn: TButton
                   Tag = 2
-                  Left = 330
+                  Left = 340
                   Top = 74
                   Width = 36
                   Height = 22
@@ -999,13 +1001,13 @@ object MoonMemoForm: TMoonMemoForm
                 object MsgSoundEdit: TEdit
                   Left = 88
                   Top = 22
-                  Width = 239
+                  Width = 249
                   Height = 21
                   Anchors = [akLeft, akTop, akRight]
                   TabOrder = 0
                 end
                 object RefSndBtn: TButton
-                  Left = 329
+                  Left = 339
                   Top = 22
                   Width = 36
                   Height = 22
@@ -1062,17 +1064,17 @@ object MoonMemoForm: TMoonMemoForm
               Padding.Right = 8
               Padding.Bottom = 8
               object Label5_3: TLabel
-                Left = 10
+                Left = 25
                 Top = 286
-                Width = 66
+                Width = 51
                 Height = 13
                 Alignment = taRightJustify
                 Caption = #36913#12398#22987#12414#12426
               end
               object Label5_4: TLabel
-                Left = 178
+                Left = 202
                 Top = 286
-                Width = 92
+                Width = 68
                 Height = 13
                 Alignment = taRightJustify
                 Caption = #26376#12398#24418#12398#26178#21051
@@ -1676,6 +1678,7 @@ object MoonMemoForm: TMoonMemoForm
     BorderOuter = fsNone
     BorderSides = [sdLeft, sdTop, sdRight, sdBottom]
     BorderWidth = 0
+    Color = 15987699
     GradientColorStyle = gcsCustom
     TabOrder = 2
     VisualStyle = vsGradient
@@ -1715,7 +1718,6 @@ object MoonMemoForm: TMoonMemoForm
     Top = 16
     object TodayAction: TAction
       Category = #31227#21205
-      Caption = #9632
       HelpType = htContext
       Hint = #20170#26085#12398#20301#32622
       OnExecute = MoveBtnClick
@@ -1723,7 +1725,6 @@ object MoonMemoForm: TMoonMemoForm
     object NxtDayAction: TAction
       Tag = 1
       Category = #31227#21205
-      Caption = 'NxtDayAction'
       HelpType = htContext
       Hint = #27425#12398#26085#12395#31227#21205
       OnExecute = MoveBtnClick
@@ -1731,7 +1732,6 @@ object MoonMemoForm: TMoonMemoForm
     object BefDayAction: TAction
       Tag = -1
       Category = #31227#21205
-      Caption = 'BefDayAction'
       HelpType = htContext
       Hint = #21069#12398#26085#12395#31227#21205
       OnExecute = MoveBtnClick
@@ -1739,7 +1739,6 @@ object MoonMemoForm: TMoonMemoForm
     object NxtWekAction: TAction
       Tag = 2
       Category = #31227#21205
-      Caption = #65310
       HelpType = htContext
       Hint = #27425#12398#36913#12395#31227#21205
       OnExecute = MoveBtnClick
@@ -1747,7 +1746,6 @@ object MoonMemoForm: TMoonMemoForm
     object BefWekAction: TAction
       Tag = -2
       Category = #31227#21205
-      Caption = #65308
       HelpType = htContext
       Hint = #21069#12398#36913#12395#31227#21205
       OnExecute = MoveBtnClick
@@ -1755,7 +1753,6 @@ object MoonMemoForm: TMoonMemoForm
     object NxtMonAction: TAction
       Tag = 3
       Category = #31227#21205
-      Caption = #65310
       HelpType = htContext
       Hint = #27425#12398#26376#12395#31227#21205
       OnExecute = MoveBtnClick
@@ -1763,7 +1760,6 @@ object MoonMemoForm: TMoonMemoForm
     object BefMonAction: TAction
       Tag = -3
       Category = #31227#21205
-      Caption = #65308
       HelpType = htContext
       Hint = #21069#12398#26376#12395#31227#21205
       OnExecute = MoveBtnClick
@@ -1771,7 +1767,6 @@ object MoonMemoForm: TMoonMemoForm
     object NxtYearAction: TAction
       Tag = 4
       Category = #31227#21205
-      Caption = '>>'
       HelpContext = 4
       HelpType = htContext
       Hint = #27425#12398#24180#12395#31227#21205
@@ -1780,7 +1775,6 @@ object MoonMemoForm: TMoonMemoForm
     object BefYearAction: TAction
       Tag = -4
       Category = #31227#21205
-      Caption = '<<'
       HelpContext = 4
       HelpType = htContext
       Hint = #21069#12398#24180#12395#31227#21205
@@ -1907,7 +1901,6 @@ object MoonMemoForm: TMoonMemoForm
     end
     object HelpAction: TAction
       Category = #12381#12398#20182
-      Caption = '?'
       HelpType = htContext
       Hint = #12504#12523#12503
       OnExecute = HelpActionExecute

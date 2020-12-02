@@ -189,6 +189,7 @@ __published:	// IDE 管理のコンポーネント
 	TCheckBox *OnceCheckBox;
 	TCheckBox *SaveUtf8CheckBox;
 	TCheckBox *ShiftCheckBox;
+	TCheckBox *SttMoonInfCheckBox;
 	TColorDialog *ColorDialog1;
 	TComboBox *CategoryComboBox;
 	TComboBox *FindStrComboBox;
@@ -337,7 +338,6 @@ __published:	// IDE 管理のコンポーネント
 	TRzTabSheet *OptSheet;
 	TRzTabSheet *VersionTabSheet;
 	TRzTabSheet *WeekSheet;
-	TCheckBox *SttMoonInfCheckBox;
 
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall FormShow(TObject *Sender);
@@ -490,6 +490,10 @@ private:	// ユーザー宣言
 	void __fastcall ChangeDate(TDateTime dt);
 	void __fastcall ShowTodayMsg(bool sound = true);
 
+	void __fastcall SetSpeedBtn(TSpeedButton *bp, UnicodeString s);
+	void __fastcall UpdateSpeedBtns();
+	void __fastcall UpdateColor(int idx = -1, TColor col = clNone);
+
 public:		// ユーザー宣言
 	HolidayTable *CurHoliday;		//祝日テーブル
 
@@ -510,8 +514,6 @@ public:		// ユーザー宣言
 
 	void __fastcall DrawDate(TPaintBox *pp,
 		int yp, int fh1, int fh2,  int y, int m, int d = 0, int wk = 0);
-
-	void __fastcall UpdateColor(int idx = -1, TColor col = clNone);
 
 	BEGIN_MESSAGE_MAP
 		VCL_MESSAGE_HANDLER(WM_FORM_SHOWED,		TMessage,	WmFormShowed)

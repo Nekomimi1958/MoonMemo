@@ -10,4 +10,4 @@ Supported language is Japanese only.
 http://nekomimi.la.coocan.jp/freesoft/moonmemo.htm
 
 ## Development Environment
-C++Builder 10.2.3
+C++Builder 10.4.1

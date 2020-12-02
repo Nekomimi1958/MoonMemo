@@ -1579,7 +1579,12 @@ void __fastcall TMoonMemoForm::TodayMsgActionExecute(TObject *Sender)
 				//一日一回
 				UnicodeString tbuf = IniFile->ReadString("Log", "LastMsgAction");
 				if (!tbuf.IsEmpty()) {
-					if ((int)StrToDateTime(tbuf) == (int)get_Now()) flag = false;
+					try {
+						if ((int)VarToDateTime(tbuf) == (int)get_Now()) flag = false;
+					}
+					catch (...) {
+						;
+					}
 				}
 			}
 			if (flag) {
@@ -2264,10 +2269,43 @@ void __fastcall TMoonMemoForm::OptColListBoxDrawItem(TWinControl *Control, int I
 }
 
 //---------------------------------------------------------------------------
+//スピードボタンにキャプションを設定
+//---------------------------------------------------------------------------
+void __fastcall TMoonMemoForm::SetSpeedBtn(TSpeedButton *bp, UnicodeString s)
+{
+	Graphics::TBitmap *bmp = bp->Glyph;
+	TCanvas *cv = bmp->Canvas;
+	cv->Font->Assign(bp->Font);
+	TRect rc = Rect(0,0, cv->TextWidth(s) + 4, cv->TextHeight(s) + 4);
+	bmp->SetSize(rc.Width(), rc.Height());
+	bmp->Transparent = true;
+	cv->Brush->Color = Color;
+	cv->Brush->Style = bsSolid;
+	cv->FillRect(rc);
+	cv->Brush->Style = bsClear;
+	cv->TextOut(2, 2, s);
+}
+//---------------------------------------------------------------------------
+void __fastcall TMoonMemoForm::UpdateSpeedBtns()
+{
+		SetSpeedBtn(HelpButton, "?");
+		SetSpeedBtn(BefYearBtn, "<<");
+		SetSpeedBtn(BefMonBtn, "<");
+		SetSpeedBtn(TodayBtn, "■");
+		SetSpeedBtn(NxtMonBtn, ">");
+		SetSpeedBtn(NxtYearBtn, ">>");
+		SetSpeedBtn(BefWekBtn, "<");
+		SetSpeedBtn(TodayBtn2, "■");
+		SetSpeedBtn(NxtWekBtn, ">");
+}
+
+//---------------------------------------------------------------------------
 //色変更を反映
 //---------------------------------------------------------------------------
 void __fastcall TMoonMemoForm::UpdateColor(int idx, TColor col)
 {
+	bool rq_spdbtn = false;
+
 	if (idx!=-1) ColorSet[idx] = col;
 
 	if (idx==-1 || idx==COLIX_BackGr) {
@@ -2275,6 +2313,7 @@ void __fastcall TMoonMemoForm::UpdateColor(int idx, TColor col)
 		Color									= bg;
 		RzPageControl1->TabColors->Unselected	= bg;
 		MemRzTabControl->TabColors->Unselected	= bg;
+		rq_spdbtn = true;
 	}
 
 	if (idx==-1 || idx==COLIX_ForeGr) {
@@ -2284,7 +2323,10 @@ void __fastcall TMoonMemoForm::UpdateColor(int idx, TColor col)
 		RzPageControl1->TextColors->Unselected	= fg;
 		MemRzTabControl->TextColors->Selected	= fg;
 		MemRzTabControl->TextColors->Unselected = fg;
+		rq_spdbtn = true;
 	}
+
+	if (rq_spdbtn) UpdateSpeedBtns();
 
 	ToDoMemo1->Color			 = ColorSet[COLIX_MemoBgX];
 	ToDoMemo1->Font->Color		 = ColorSet[COLIX_MemoFgX];
@@ -2433,6 +2475,7 @@ void __fastcall TMoonMemoForm::RefFontBtnClick(TObject *Sender)
 		Font->Assign(FontSet[FNTIX_Base]);
 		Font->Color = ColorSet[COLIX_ForeGr];
 		OptFontListBox->Repaint();
+		if (idx==FNTIX_Base) UpdateSpeedBtns();
 
 		for (int i=0; i<7; i++) WekMemo[i]->Font->Assign(FontSet[FNTIX_Memo]);
 
